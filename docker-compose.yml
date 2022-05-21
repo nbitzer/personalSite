@@ -1,0 +1,17 @@
+services:
+  client:
+    image: bitzer-me-client
+    ports:
+      - "3000:3000"
+    networks:
+      - bitzer-me
+  server:
+    image: bitzer-me-server
+    ports:
+      - "5000:5000"
+    networks:
+      - bitzer-me
+# define local network for this app
+networks:
+  bitzer-me:
+    driver: bridge
