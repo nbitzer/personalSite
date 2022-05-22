@@ -1,28 +1,32 @@
-import React, {useState, useEffect} from 'react';
+// React related imports
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
+
+// CSS imports
+import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 
+// Component imports
+import Home from "./components/Home"
+import About from './components/About';
+import Projects from './components/Projects';
+
+
 function App() {
-  const [data, setData] = useState([{}])
-
-  useEffect(() => {
-    fetch("http://:5000/aplocalhosti")
-    .then(resp => resp.json())
-    .then(data => {
-      setData(data)
-    })
-  }, [])
-
   return (
-    <div className="App">
-      {(typeof data.testing === 'undefined') ? (
-        <p>Loading...</p>
-      ): (
-        data.testing.map((item, i) => (
-          <p key={i}>{item}</p>
-        ))
-      )
-      }
-    </div>
+    <Router>
+      <div>
+        <Routes>
+          <Route path="/" element={<Home/>} />
+          <Route path="/about" element={<About/>} />
+          <Route path="/projects" element={<Projects/>} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
