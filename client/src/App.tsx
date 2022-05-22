@@ -1,10 +1,11 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState, useEffect} from 'react';
+import './App.css';
 
 function App() {
   const [data, setData] = useState([{}])
 
   useEffect(() => {
-    fetch("http://localhost:5000/api")
+    fetch("http://:5000/aplocalhosti")
     .then(resp => resp.json())
     .then(data => {
       setData(data)
@@ -12,7 +13,7 @@ function App() {
   }, [])
 
   return (
-    <div>
+    <div className="App">
       {(typeof data.testing === 'undefined') ? (
         <p>Loading...</p>
       ): (
@@ -22,7 +23,7 @@ function App() {
       )
       }
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
