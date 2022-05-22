@@ -1,7 +1,7 @@
-import express from 'express'
+import express, { Application } from 'express'
 import cors = require('cors')
 
-const app = express()
+const app: Application = express()
 
 // Set cors for local dev. Need a swtich statement for prod
 app.use(cors())
