@@ -1,11 +1,13 @@
 services:
   client:
+    restart: always
     image: bitzer-me-client
     ports:
       - "3000:3000"
     networks:
       - bitzer-me
   server:
+    restart: always
     image: bitzer-me-server
     ports:
       - "5000:5000"
