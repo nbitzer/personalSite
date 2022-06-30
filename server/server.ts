@@ -2,6 +2,7 @@ import express, { Application } from 'express'
 import cors = require('cors')
 
 const app: Application = express()
+const fs = require('fs');
 
 // Set cors for local dev. Need a swtich statement for prod
 app.use(cors())
